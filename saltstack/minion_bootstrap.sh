@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+################################################################################
+# SaltStack Minion Setup
+################################################################################
+
 sudo mkdir -p /etc/salt
 sudo cp /opt/orka/saltstack/config/minion /etc/salt/
 

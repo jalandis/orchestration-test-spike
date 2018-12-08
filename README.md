@@ -26,3 +26,20 @@ looking at here.
 Theoretically VM's may be automatically provisioned depending on the needs of requirments
 containers.  These could then also be destroyed automatically to produce an immutable
 system.
+
+## SaltStack
+
+The SaltStack orchestration test spike is utilizing an agent setup with gpg keys
+shared between master and nodes.  After a `vagrant up --provision` the following
+commands will show the simple orchestration of a Salt highstate (full server provision).
+
+  vagrant ssh orka-master --command "sudo salt '*' test.ping"
+  vagrant ssh orka-master --command "sudo salt '*' state.apply"
+
+## Ansible
+
+The Ansible orchestration test spike is utilizing an *agentless* setup with gpg
+keys shared between master and nodes.  After a `vagrant up --provision` the following
+commands will show a simple ping test.
+
+  vagrant ssh ansible-master --command "sudo ansible all -m ping"

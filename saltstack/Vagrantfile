@@ -53,6 +53,3 @@ Vagrant.configure("2") do |config|
     end
   end
 end
-
-# [vagrant@orka-master ~]$ sudo salt '*' test.ping
-# [vagrant@orka-master ~]$ sudo salt '*' state.apply

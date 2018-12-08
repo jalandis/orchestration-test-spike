@@ -1,0 +1,59 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+################################################################################
+# Configurable list of servers in clusters.
+#
+# Master defined last to allow for setup after nodes.
+################################################################################
+cluster = {
+  "ansible-node-1" => { :ip => "10.98.76.71", :cpus => 1, :mem => 1024 },
+  "ansible-node-2" => { :ip => "10.98.76.72", :cpus => 1, :mem => 1024 },
+  "ansible-master" => { :ip => "10.98.76.70", :cpus => 1, :mem => 1024 }
+}
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.box_check_update = true
+
+  # New feature of Vagrant 2.2.0 :-)
+  config.vagrant.plugins = ["vagrant-hostmanager", "vagrant-vbguest"]
+
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.include_offline = true
+
+  cluster.each_with_index do |(hostname, info), index|
+    config.vm.define hostname do |cfg|
+      cfg.vm.hostname = hostname
+      cfg.vm.network :private_network, ip: "#{info[:ip]}"
+      cfg.vm.provider :virtualbox do |vb, override|
+        vb.name = hostname
+
+        vb.customize [
+            "modifyvm", :id,
+            "--memory", info[:mem],
+            "--cpus", info[:cpus]
+        ]
+      end
+
+      cfg.vm.synced_folder "../", "/opt/orka", :nfs => true
+
+      if hostname.include? "master"
+        provision_script = "/opt/orka/ansible/master_bootstrap.sh"
+
+        cluster.each do |(minion, _)|
+          if minion.include? "node"
+            cfg.vm.provision :shell, :inline => "/opt/orka/ansible/register_minion.sh --minion #{minion}", :privileged => true
+          end
+        end
+      else
+        provision_script = "/opt/orka/ansible/minion_bootstrap.sh"
+      end
+
+      cfg.vm.provision :hostmanager
+      cfg.vm.provision :shell, :inline => provision_script, :privileged => true
+    end
+  end
+end

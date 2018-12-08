@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+################################################################################
+# SaltStack Master Setup
+################################################################################
+
 sudo mkdir -p /etc/salt
 sudo cp /opt/orka/saltstack/config/master /etc/salt/
 
