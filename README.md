@@ -35,6 +35,7 @@ commands will show the simple orchestration of a Salt highstate (full server pro
 
   vagrant ssh orka-master --command "sudo salt '*' test.ping"
   vagrant ssh orka-master --command "sudo salt '*' state.apply"
+  vagrant ssh orka-master --command "sudo salt-run state.orchestrate orch.secondary"
 
 ## Ansible
 
