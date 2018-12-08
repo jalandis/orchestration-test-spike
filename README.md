@@ -40,6 +40,7 @@ commands will show the simple orchestration of a Salt highstate (full server pro
 
 The Ansible orchestration test spike is utilizing an *agentless* setup with gpg
 keys shared between master and nodes.  After a `vagrant up --provision` the following
-commands will show a simple ping test.
+commands will show the simple orchestration of a simple playbook.
 
   vagrant ssh ansible-master --command "sudo ansible all -m ping"
+  vagrant ssh ansible-master --command "sudo ansible-playbook /opt/orka/ansible/config/playbook.yml"
