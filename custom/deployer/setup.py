@@ -17,6 +17,9 @@ setup(
     author="John Landis",
     author_email="john.landis@jacquette.com",
     install_requires=["fabric>=2.0,<3.0", "python-dotenv"],
+    extras_require={
+        'dev': ["setuptools-lint"],
+    },
     packages=find_packages(),
     classifiers=[],
 )

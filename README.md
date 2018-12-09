@@ -13,21 +13,29 @@ For simplicity, Centos will be used for these clusters.  Please note, there is a
 issue with VirtualBox and Centos that impedes the automatic installation of VB Guest
 Additions.
 
+# Automation VS Orchestration Note
+
+Automation is simply the scripting of certian jobs to remove manual intervention.
+The difference between that and orchestration is that automation works on a single
+system. For our purposes and in a lot of online documenation, a single system is
+defined as one server.  That is a convenient if simplistic distinction that will
+be used to differentiate the 2 terms.
+
 # Server and Container Orchestration Note
 
-This project will be testing out methods for *server automation orchestration*.
-The differences between server and container orcestration should be noted.  In a
-containerized environment, a lot of the provisioning applications require is performed
-in the container setup.
+This project will be testing out methods for *server orchestration*.  The differences
+between server and container orcestration should be noted.  In a containerized environment,
+a lot of the provisioning applications require is performed in the container setup.
 
 However, even if containers were used the underlying servers would still require
 an orchestration method to control necessary non-container aspects of the system.
-The orchestration of containers requires a separate system than what we are currently
+The orchestration of containers requires a separate solution than what we are currently
 looking at here.
 
 Theoretically VM's may be automatically provisioned depending on the needs of required
 containers.  These could then also be destroyed automatically to produce an immutable
-system.
+system.  Both SaltStack and Ansible offer some support for this aspect of orchestration
+and it may be useful to extend this project to test those features as well.
 
 ## SaltStack
 
