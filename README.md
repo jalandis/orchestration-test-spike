@@ -9,7 +9,9 @@ to simulate a real environment.
 A minimum of 3 servers will be used but the number is configurable depending on the
 `cluster` variable in your `orka/user_settings.yaml` file.
 
-For simplicity, Centos will be used to
+For simplicity, Centos will be used for these clusters.  Please note, there is an
+issue with VirtualBox and Centos that impedes the automatic installation of VB Guest
+Additions.
 
 # Server and Container Orchestration Note
 
@@ -23,7 +25,7 @@ an orchestration method to control necessary non-container aspects of the system
 The orchestration of containers requires a separate system than what we are currently
 looking at here.
 
-Theoretically VM's may be automatically provisioned depending on the needs of requirments
+Theoretically VM's may be automatically provisioned depending on the needs of required
 containers.  These could then also be destroyed automatically to produce an immutable
 system.
 
