@@ -19,6 +19,11 @@ Vagrant.configure("2") do |config|
   # New feature of Vagrant 2.2.0 :-)
   config.vagrant.plugins = ["vagrant-hostmanager", "vagrant-vbguest"]
 
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.include_offline = true
+
   cluster.each_with_index do |(hostname, info), index|
     config.vm.define hostname do |cfg|
       cfg.vm.hostname = hostname

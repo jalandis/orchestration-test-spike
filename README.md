@@ -45,3 +45,5 @@ commands will show the simple orchestration of a simple playbook.
 
   vagrant ssh ansible-master --command "sudo ansible all -m ping"
   vagrant ssh ansible-master --command "sudo ansible-playbook /opt/orka/ansible/config/playbook.yml"
+
+## Custom
