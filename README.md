@@ -33,9 +33,11 @@ The SaltStack orchestration test spike is utilizing an agent setup with gpg keys
 shared between master and nodes.  After a `vagrant up --provision` the following
 commands will show the simple orchestration of a Salt highstate (full server provision).
 
-  vagrant ssh orka-master --command "sudo salt '*' test.ping"
-  vagrant ssh orka-master --command "sudo salt '*' state.apply"
-  vagrant ssh orka-master --command "sudo salt-run state.orchestrate orch.secondary"
+```
+vagrant ssh orka-master --command "sudo salt '*' test.ping"
+vagrant ssh orka-master --command "sudo salt '*' state.apply"
+vagrant ssh orka-master --command "sudo salt-run state.orchestrate orch.secondary"
+```
 
 ## Ansible
 
@@ -43,7 +45,15 @@ The Ansible orchestration test spike is utilizing an *agentless* setup with gpg
 keys shared between master and nodes.  After a `vagrant up --provision` the following
 commands will show the simple orchestration of a simple playbook.
 
-  vagrant ssh ansible-master --command "sudo ansible all -m ping"
-  vagrant ssh ansible-master --command "sudo ansible-playbook /opt/orka/ansible/config/playbook.yml"
+```
+vagrant ssh ansible-master --command "sudo ansible all -m ping"
+vagrant ssh ansible-master --command "sudo ansible-playbook /opt/orka/ansible/config/playbook.yml"
+```
 
 ## Custom
+
+For simple tasks, the full blown SaltStack or Ansible solutions are too much for
+what amounts to simple bash of python scripts.  It is possible to get limited orchestration
+with a reusable Python project.  This test spike will act as the bridge between
+Bamboo and the orchestration server.  A packaged python project that encompasses
+common tasks to prevent code duplication.
