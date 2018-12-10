@@ -18,7 +18,7 @@ setup(
     author_email="john.landis@jacquette.com",
     install_requires=["fabric>=2.0,<3.0", "python-dotenv"],
     extras_require={
-        'dev': ["setuptools-lint"],
+        'dev': ["setuptools-lint", "sphinx"],
     },
     packages=find_packages(),
     classifiers=[],

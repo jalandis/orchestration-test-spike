@@ -10,3 +10,7 @@ def get_pylint_args():
 @invoke.task
 def pylint(ctx):
     invoke.run("pylint " + " ".join(get_pylint_args()), echo=True)
+
+@invoke.task
+def sphinx(ctx):
+    invoke.run("sphinx-build -b html . ./build/docs", echo=True)

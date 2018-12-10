@@ -1,6 +1,17 @@
-===========================================
+.. Deployer documentation master file, created by
+   sphinx-quickstart on Sun Dec  9 18:30:59 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Deployer's documentation!
+====================================
+
 Test Spike for custom orchestration method
-===========================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
 
 Requirements
 ------------
@@ -26,7 +37,8 @@ Once the project is built, the python wheel can be hosted in our local PyPi repo
 
 See **config/master_bootstrap.sh** for deploy instructions.
 
-TODO
-----
+Source Documentation
+^^^^^^^^^^^^^^^^^^^^
 
-Project needs some static code analysis tools and inclusion of **Sphinx** for documentation.
+.. automodule:: deployer
+   :members:
