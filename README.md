@@ -49,6 +49,13 @@ vagrant ssh orka-master --command "sudo salt '*' state.apply"
 vagrant ssh orka-master --command "sudo salt-run state.orchestrate orch.secondary"
 ```
 
+### SaltStack GUI
+
+For giggles, I have setup the [SaltStack GUI ](https://github.com/erwindon/SaltGUI "SaltStack GUI ")
+project on the master to experiment with non CLI Salt orchestration.
+
+![SaltStack GUI](docs/highstate.jpg?raw=true "Title")
+
 ## Ansible
 
 The Ansible orchestration test spike is utilizing an *agentless* setup with gpg
