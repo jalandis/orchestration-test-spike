@@ -67,6 +67,32 @@ vagrant ssh ansible-master --command "sudo ansible all -m ping"
 vagrant ssh ansible-master --command "sudo ansible-playbook /opt/orka/ansible/config/playbook.yml"
 ```
 
+### Ansible Tower
+
+Ansible Tower (AT) is a GUI for managing and monitoring of Ansible nodes.  There is a trial license that will allow the setup of Ansible Tower with a limit of 10 nodes and no LDAP integration.
+
+Tower requires a minimum of 4GB memory.  The ansible-master server has been altered to accomadate.
+
+Access to AT requires setup of the admin account credentials.  This will require some manual setup:
+
+```
+vagrant ssh ansible-master
+sudo awx-manage changepassword admin
+```
+
+Login URL:
+```
+https://ansible-master/#/login
+```
+
+While logging in, you will be prompted for a license you can download from [Ansible](https://www.ansible.com/license).
+
+The Ansible CLI has been setup with the correct configuration to work with 2 nodes.  The AT GUI will require manual setup.  Outside this test case, there are methods to store a lot of configuration in a Git repository and simple import.
+
+An example remote command executed against a node:
+
+![Ansible Tower Example](docs/simple_ansible_tower_command.png?raw=true "Title")
+
 ## Custom
 
 For simple tasks, the full blown SaltStack or Ansible solutions are too much for
