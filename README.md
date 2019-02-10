@@ -85,9 +85,7 @@ Login URL:
 https://ansible-master/#/login
 ```
 
-While logging in, you will be prompted for a license you can download from [Ansible](https://www.ansible.com/license).
-
-The Ansible CLI has been setup with the correct configuration to work with 2 nodes.  The AT GUI will require manual setup.  Outside this test case, there are methods to store a lot of configuration in a Git repository and simple import.
+While logging in, you will be prompted for a license you can download from [Ansible](https://www.ansible.com/license).  The AT GUI will then require a few manual steps to setup.
 
 An example remote command executed against a node:
 
